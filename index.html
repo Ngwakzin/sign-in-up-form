@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link to custom css -->
+    <link rel="stylesheet" href="style.css">
+    <title>Sign In/Sign Up Form | Dan Aleko</title>
+
+    <!-- link to boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="login-container">
+        <!-- Login Form -->
+        <div class="login-form" id="loginForm">
+            <h1>Sign In</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class='bx bxl-google-plus'></i></a>
+                <a href="#" class="icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="icon"><i class='bx bxl-twitter'></i></a>
+                <a href="#" class="icon"><i class='bx bxl-apple'></i></a>
+            </div>
+
+            <div class="form-message-container">
+                <span>Or use your email and password</span>
+            </div>
+
+            <form>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign In</button>
+                <a href="#">Forgot Your Password?</a>
+            </form>
+
+            <p>Don't have an account? <a href="#" id="showSignup">Sign Up</a></p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="signup-form hidden" id="signupForm">
+            <h1>Create An Account</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class='bx bxl-google-plus'></i></a>
+                <a href="#" class="icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="icon"><i class='bx bxl-twitter'></i></a>
+                <a href="#" class="icon"><i class='bx bxl-apple'></i></a>
+            </div>
+            <div class="form-message-container">
+                <span>Or use your email for registration</span>
+            </div>
+
+            <form onsubmit="return validateForm()">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <span class="error" id="nameError" style="color:red; display:none;">*</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="surname" placeholder="Surname" required>
+                    <span class="error" id="surnameError" style="color:red; display:none;">*</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="idNumber" placeholder="ID Number" maxlength="15" required oninput="formatIDNumber(this)">
+                    <span class="error" id="idNumberError" style="color:red; display:none;">*</span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="cellphoneNumber" placeholder="Cellphone Number" maxlength="12" required oninput="formatCellphoneNumber(this)">
+                    <span class="error" id="cellphoneError" style="color:red; display:none;">*</span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <span class="error" id="emailError" style="color:red; display:none;">*</span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required oninput="checkPasswordStrength()">
+                    <div class="password-strength">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                    <span id="passwordStrengthText" style="color:red; display:none;"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <span class="error" id="confirmPasswordError" style="color:red; display:none;">*</span>
+                    <input type="hidden" id="passwordStrength" value="0">
+                </div>
+                <span id="passwordErrorMessage" style="color:red; display:none;">Passwords do not match</span>
+                <button type="submit">Sign Up</button>
+            </form>            
+
+            <p>Already have an account? <a href="#" id="showLogin">Sign In</a></p>
+        </div>
+    </div>
+
+    <!-- JavaScript link -->
+    <script src="script.js"></script>
+</body>
+</html>
